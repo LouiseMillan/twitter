@@ -15,6 +15,14 @@ class UserService{
     static updateUserUsername(user, username){
         user.setUsername = username;
     }
+    static getAllUsernames(users){
+        if(Array.isArray(users)){
+            return users.map(element => {
+                return element.username;
+            });
+        }
+        return null;
+    }
 }
 
 module.exports = UserService;
