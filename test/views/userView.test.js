@@ -13,5 +13,11 @@ describe("Test for UserView", () => {
     // Valida que un `payload` contenga en alguna de las llaves `username`, `name`, o `id` un valor en `null`.
     // Si hay un valor `null` regresa un objeto con la llave `error` y que indique el texto: `necesitan tener
     // un valor válido`.
-    
+    test("Return an error object when try to create a new user with a payload with invalid properties", () => {
+        const payload = {username:null, name: 12, id: "id"};
+        const result = UserView.createUser(payload);
+
+        expect(result.error).toMatch(/necesitan tener un valor válido/);        
+    });
+
 });
