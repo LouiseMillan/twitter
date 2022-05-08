@@ -1,3 +1,4 @@
+const User = require("../models/user");
 
 class UserView {
     static createUser(payload) {
@@ -8,6 +9,7 @@ class UserView {
                 return {error: "necesitan tener un valor válido"};
             if(payload.username == undefined || payload.name == undefined || payload.id == undefined)
                 return {error: "necesitan tener un valor válido"};
+            return new User(payload.id, payload.username, payload.name, "Sin bio");
         }
     }
 }
